@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ExamCraft - Question Bank</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            E
+        </div>
+
+        <div>
+            <h2>ExamCraft</h2>
+            <span>Question Bank</span>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <button class="nav active"
+                data-page="dashboard">
+
+            <span>⌂</span>
+            Dashboard
+
+        </button>
+
+
+        <button class="nav"
+                data-page="units">
+
+            <span>▦</span>
+            Units
+
+        </button>
+
+
+        <button class="nav"
+                data-page="questions">
+
+            <span>?</span>
+            Question Bank
+
+        </button>
+
+
+        <button class="nav"
+                data-page="papers">
+
+            <span>▤</span>
+            Test Papers
+
+        </button>
+
+
+        <button class="nav"
+                data-page="attempts">
+
+            <span>✓</span>
+            Attempts
+
+        </button>
+
+
+        <button class="nav"
+                data-page="usage">
+
+            <span>↻</span>
+            Usage Frequency
+
+        </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="api-box">
+
+            <span id="api">
+
+                <i></i>
+                Checking API...
+
+            </span>
+
+        </div>
+
+        <p>ExamCraft API</p>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <div class="breadcrumb">
+
+                ExamCraft
+
+                <span>/</span>
+
+                <strong id="breadcrumb-page">
+                    Dashboard
+                </strong>
+
+            </div>
+
+
+            <h1 id="page-title">
+                Dashboard
+            </h1>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <div class="status">
+
+                <span></span>
+
+                <span id="status-text">
+                    System Ready
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD
+    ================================================= -->
+
+    <section id="page-dashboard"
+             class="page active">
+
+
+        <div class="hero">
+
+            <div>
+
+                <span class="eyebrow">
+                    EXAM MANAGEMENT SYSTEM
+                </span>
+
+
+                <h2>
+                    Build smarter tests.<br>
+                    Assess with confidence.
+                </h2>
+
+
+                <p>
+                    Create randomized question papers,
+                    manage your question bank and track
+                    student performance.
+                </p>
+
+            </div>
+
+
+            <div class="hero-symbol">
+                ?
+            </div>
+
+        </div>
+
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ?
+                </div>
+
+
+                <div>
+
+                    <span>Total Questions</span>
+
+                    <strong id="total-questions">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ▦
+                </div>
+
+
+                <div>
+
+                    <span>Total Units</span>
+
+                    <strong id="total-units">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ▤
+                </div>
+
+
+                <div>
+
+                    <span>Test Papers</span>
+
+                    <strong id="total-papers">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+
+                <div>
+
+                    <span>Attempts</span>
+
+                    <strong id="total-attempts">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="section-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    QUICK ACTIONS
+                </span>
+
+                <h2>
+                    Get started
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="quick-grid">
+
+
+            <button class="quick-card"
+                    onclick="showPage('units')">
+
+                <div class="quick-icon">
+                    +
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Add Unit
+                    </h3>
+
+                    <p>
+                        Create a new syllabus unit
+                    </p>
+
+                </div>
+
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+
+
+            <button class="quick-card"
+                    onclick="showPage('questions')">
+
+                <div class="quick-icon">
+                    ?
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Question Bank
+                    </h3>
+
+                    <p>
+                        Manage your questions
+                    </p>
+
+                </div>
+
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+
+
+            <button class="quick-card"
+                    onclick="openModal('paperModal')">
+
+                <div class="quick-icon">
+                    ▤
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Generate Paper
+                    </h3>
+
+                    <p>
+                        Create a randomized test
+                    </p>
+
+                </div>
+
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+
+
+            <button class="quick-card"
+                    onclick="showPage('attempts')">
+
+                <div class="quick-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        View Attempts
+                    </h3>
+
+                    <p>
+                        Check student results
+                    </p>
+
+                </div>
+
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         UNITS
+    ================================================= -->
+
+    <section id="page-units"
+             class="page">
+
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    SYLLABUS
+                </span>
+
+
+                <h2>
+                    Units
+                </h2>
+
+
+                <p>
+                    Manage the units used to organize
+                    your question bank.
+                </p>
+
+            </div>
+
+
+            <button class="primary"
+                    onclick="openModal('unitModal')">
+
+                + Add Unit
+
+            </button>
+
+        </div>
+
+
+
+        <div class="toolbar">
+
+            <input
+                id="unitSearch"
+                type="text"
+                placeholder="Search units..."
+                oninput="filterUnits()">
+
+        </div>
+
+
+
+        <div id="units"
+             class="units-container">
+
+            <div class="loading">
+                Loading units...
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         QUESTIONS
+    ================================================= -->
+
+    <section id="page-questions"
+             class="page">
+
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    QUESTION MANAGEMENT
+                </span>
+
+
+                <h2>
+                    Question Bank
+                </h2>
+
+
+                <p>
+                    Add and manage objective questions
+                    for your examinations.
+                </p>
+
+            </div>
+
+
+            <button class="primary"
+                    onclick="openModal('questionModal')">
+
+                + Add Question
+
+            </button>
+
+        </div>
+
+
+
+        <div class="toolbar">
+
+            <input
+                id="questionSearch"
+                type="text"
+                placeholder="Search questions or topics..."
+                oninput="filterQuestions()">
+
+
+            <select
+                id="difficultyFilter"
+                onchange="filterQuestions()">
+
+                <option value="">
+                    All Difficulties
+                </option>
+
+                <option value="easy">
+                    Easy
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="hard">
+                    Hard
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div id="questions">
+
+            <div class="loading">
+                Loading questions...
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         TEST PAPERS
+    ================================================= -->
+
+    <section id="page-papers"
+             class="page">
+
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    RANDOMIZED ASSESSMENT
+                </span>
+
+
+                <h2>
+                    Test Papers
+                </h2>
+
+
+                <p>
+                    Generate and view randomized
+                    examination papers.
+                </p>
+
+            </div>
+
+
+            <button class="primary"
+                    onclick="openModal('paperModal')">
+
+                + Generate Paper
+
+            </button>
+
+        </div>
+
+
+
+        <div id="papers">
+
+            <div class="loading">
+                Loading test papers...
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ATTEMPTS
+    ================================================= -->
+
+    <section id="page-attempts"
+             class="page">
+
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    PERFORMANCE
+                </span>
+
+
+                <h2>
+                    Attempts
+                </h2>
+
+
+                <p>
+                    View submitted attempts and
+                    automatically calculated scores.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="attempts">
+
+            <div class="loading">
+                Loading attempts...
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         USAGE FREQUENCY
+    ================================================= -->
+
+    <section id="page-usage"
+             class="page">
+
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    QUESTION ANALYTICS
+                </span>
+
+
+                <h2>
+                    Usage Frequency
+                </h2>
+
+
+                <p>
+                    Track how frequently each question
+                    has appeared in generated papers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="usage">
+
+            <div class="loading">
+                Loading usage data...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     UNIT MODAL
+===================================================== -->
+
+<div id="unitModal"
+     class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+
+    <div class="modal-box">
+
+        <button class="modal-close"
+                onclick="closeModal('unitModal')">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Add Unit
+        </h2>
+
+
+        <p>
+            Create a new syllabus unit.
+        </p>
+
+
+        <form class="form"
+              onsubmit="addUnit(event)">
+
+
+            <div class="full">
+
+                <label>
+                    UNIT NAME
+                </label>
+
+
+                <input
+                    id="unitName"
+                    type="text"
+                    placeholder="Example: Unit 1"
+                    required>
+
+            </div>
+
+
+            <div class="full actions">
+
+                <button type="button"
+                        class="ghost"
+                        onclick="closeModal('unitModal')">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="primary">
+
+                    Add Unit
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     QUESTION MODAL
+===================================================== -->
+
+<div id="questionModal"
+     class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+
+    <div class="modal-box">
+
+        <button class="modal-close"
+                onclick="closeModal('questionModal')">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Add Question
+        </h2>
+
+
+        <p>
+            Add an objective question to your bank.
+        </p>
+
+
+        <form id="questionForm"
+              class="form"
+              onsubmit="addQuestion(event)">
+
+
+            <div class="full">
+
+                <label>
+                    QUESTION
+                </label>
+
+
+                <input
+                    id="questionText"
+                    type="text"
+                    placeholder="Enter question"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    TOPIC
+                </label>
+
+
+                <input
+                    id="topic"
+                    type="text"
+                    placeholder="Example: OOP"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    DIFFICULTY
+                </label>
+
+
+                <select id="difficulty"
+                        required>
+
+                    <option value="">
+                        Select Difficulty
+                    </option>
+
+                    <option value="Easy">
+                        Easy
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Hard">
+                        Hard
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    OPTION A
+                </label>
+
+
+                <input
+                    id="optionA"
+                    type="text"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    OPTION B
+                </label>
+
+
+                <input
+                    id="optionB"
+                    type="text"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    OPTION C
+                </label>
+
+
+                <input
+                    id="optionC"
+                    type="text"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    OPTION D
+                </label>
+
+
+                <input
+                    id="optionD"
+                    type="text"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    CORRECT ANSWER
+                </label>
+
+
+                <select
+                    id="correctAnswer"
+                    required>
+
+                    <option value="">
+                        Select Answer
+                    </option>
+
+                    <option value="A">
+                        A
+                    </option>
+
+                    <option value="B">
+                        B
+                    </option>
+
+                    <option value="C">
+                        C
+                    </option>
+
+                    <option value="D">
+                        D
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    UNIT
+                </label>
+
+
+                <select
+                    id="questionUnit"
+                    required>
+
+                    <option value="">
+                        Select Unit
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="full actions">
+
+                <button type="button"
+                        class="ghost"
+                        onclick="closeModal('questionModal')">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="primary">
+
+                    Add Question
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TEST PAPER MODAL
+===================================================== -->
+
+<div id="paperModal"
+     class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+
+    <div class="modal-box">
+
+        <button class="modal-close"
+                onclick="closeModal('paperModal')">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Generate Test Paper
+        </h2>
+
+
+        <p>
+            Create a randomized paper using
+            Easy / Medium / Hard questions.
+        </p>
+
+
+        <form id="paperForm"
+              class="form"
+              onsubmit="generateTestPaper(event)">
+
+
+            <div class="full">
+
+                <label>
+                    PAPER TITLE
+                </label>
+
+
+                <input
+                    id="paperTitle"
+                    type="text"
+                    placeholder="Example: Java OOP Test"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    TOTAL QUESTIONS
+                </label>
+
+
+                <input
+                    id="totalQuestions"
+                    type="number"
+                    min="1"
+                    placeholder="10"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    EASY QUESTIONS
+                </label>
+
+
+                <input
+                    id="easyCount"
+                    type="number"
+                    min="0"
+                    value="0"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    MEDIUM QUESTIONS
+                </label>
+
+
+                <input
+                    id="mediumCount"
+                    type="number"
+                    min="0"
+                    value="0"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    HARD QUESTIONS
+                </label>
+
+
+                <input
+                    id="hardCount"
+                    type="number"
+                    min="0"
+                    value="0"
+                    required>
+
+            </div>
+
+
+            <div class="full actions">
+
+                <button type="button"
+                        class="ghost"
+                        onclick="closeModal('paperModal')">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="primary">
+
+                    Generate Paper
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div id="toasts"></div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
